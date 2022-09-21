@@ -32,24 +32,32 @@ function createBookCard(book) {
     const author = document.createElement("p");
     const pages = document.createElement("p");
     const read = document.createElement("p");
+    const remove = document.createElement("div");
+
+    bookCard.classList.add('book-card');
+    title.classList.add('book-title');
+    remove.classList.add('book-remove');
+    read.classList.add('book-read-status');
 
     title.textContent = book["title"]
     author.textContent = book["author"]
-    pages.textContent = book["title"]
-    read.textContent = book["read"]
+    pages.textContent = `${book["pages"]} pages`
+    read.textContent = book["read"];
+    remove.textContent = "x";
 
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
     bookCard.appendChild(read);
+    bookCard.appendChild(remove);
 
     return bookCard;
 }
 
 bookList = document.querySelector(".book-list");
 
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-const harryPotter = new Book("Harry Potter", "J.K. Rowling", 295, "read");
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read");
+const harryPotter = new Book("Harry Potter", "J.K. Rowling", 295, "Read");
 
 const myLibrary = new Library();
 
