@@ -54,6 +54,37 @@ function createBookCard(book) {
     return bookCard;
 }
 
+
+// Events to add book
+const addBookButton = document.querySelector(".add-book");
+var addBookModal = document.getElementById("addBookModal"); // Get the modal
+var closeSpan = document.querySelector(".close"); // Get the <span> element that closes the modal
+
+function addBook(e) {
+    // When the user adds book, open the modal
+    addBookModal.style.display = "block";
+}
+
+function closeAddBookModalSpan(e) {
+    // When the user clicks on <span> (x), close the modal
+    addBookModal.style.display = "none";
+}
+
+function closeAddBookModalWindow(e) {
+    // When the user clicks anywhere outside of the modal, close it
+    if (e.target == addBookModal) {
+        addBookModal.style.display = "none";
+    }
+}
+
+addBookButton.addEventListener('click', addBook);
+closeSpan.addEventListener('click', closeAddBookModalSpan);
+window.addEventListener('click', closeAddBookModalWindow);
+
+
+
+
+
 bookList = document.querySelector(".book-list");
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "Not read");
