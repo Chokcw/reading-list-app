@@ -86,8 +86,7 @@ button {
 }
 
 .book-read-status{
-    background-color: #0f766e;
-    color: #FFFFFF;
+    
     border-radius: 16px;
     width: 80px;
     height: 24px;
@@ -96,6 +95,17 @@ button {
     position: absolute;
     bottom: 12px;
     right: 12px;
+}
+
+.book-read-true {
+    background-color: #0f766e;
+    color: #FFFFFF;
+}
+
+.book-read-false {
+    background-color: #FFFFFF;
+    color: #0f766e;
+    border: 2px solid #0f766e;
 }
 
 /* The Modal (background) */
@@ -118,8 +128,10 @@ button {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 20%; /* Could be more or less, depending on screen size */
+    width: 250px; /* Could be more or less, depending on screen size */
+}
 
+.add-book-form {
     display: grid;
     grid-template-rows: repeat(6, 1fr); 
     gap: 15px;
@@ -131,12 +143,12 @@ button {
     text-align: center;
 }
 
-.modal-add-book .input {
+.add-book-form .input {
     display: flex;
     flex-direction: column;
 }
 
-.modal-add-book button {
+.add-book-form button {
     /* display: flex;
     flex-direction: column; */
     justify-self: end;

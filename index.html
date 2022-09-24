@@ -13,11 +13,10 @@
             <div class = "title">Reading List</div>
         </div>
         <div class = "controls">
-            <button class = "add-book">Add book</div>
+            <button class = "add-book">Add book</button>
         </div>
         <div class = "main">
-            <div class = "book-list">
-            </div>
+            <div class = "book-list"></div>
         </div>
     </div>
 
@@ -26,28 +25,27 @@
 
     <!-- Modal content -->
     <div class="modal-add-book">
-        <!-- <span class="close">&times;</span> -->
-        <div class="modal-header">Add New Book</div>
-        <div class="input">
-            <!-- <label for="title">Book Title</label> -->
-            <input type="text" id="title" name="title" placeholder="Title" required>
-        </div>
-        <div class="input">
-            <!-- <label for="author">Author</label> -->
-            <input type="text" id="author" name="author" placeholder="Author" required>
-        </div>
-        <div class="input">
-            <!-- <label for="pages">Number of Pages</label> -->
-            <input type="number" id="pages" name="pages" placeholder="Pages" min="1" required>
-        </div>
-        <div class="input-checkbox">
-            <label for="read">Read it yet?</label>
-            <input type="checkbox" id="read" placeholder="" name="read">
-        </div>
-
-        <button class="confirm">Add book</button>
-
-
+        <form class="add-book-form">
+            <!-- <span class="close">&times;</span> -->
+            <div class="modal-header">Add New Book</div>
+            <div class="input">
+                <!-- <label for="title">Book Title</label> -->
+                <input type="text" id="new-book-title" name="title" placeholder="Title" required>
+            </div>
+            <div class="input">
+                <!-- <label for="author">Author</label> -->
+                <input type="text" id="new-book-author" name="author" placeholder="Author" required>
+            </div>
+            <div class="input">
+                <!-- <label for="pages">Number of Pages</label> -->
+                <input type="number" id="new-book-pages" name="pages" placeholder="Pages" min="1" required>
+            </div>
+            <div class="input-checkbox">
+                <label for="read">Read it yet?</label>
+                <input type="checkbox" id="new-book-read"  name="read">
+            </div>
+            <button class="confirm-add-book">Add book</button>
+        </form>
     </div>
   
   </div>
