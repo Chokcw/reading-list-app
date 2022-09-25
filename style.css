@@ -40,13 +40,17 @@ button {
     width: 80px;
     text-align: center;
     cursor: pointer;
-    
 }
 
 .main {
     /* grid-row: 3 / 4; */
     padding: 10px 100px;
     
+}
+
+.add-book {
+    font-size: 18px;
+    width: 100px
 }
 
 .book-list {
@@ -86,7 +90,6 @@ button {
 }
 
 .book-read-status{
-    
     border-radius: 16px;
     width: 80px;
     height: 24px;
@@ -95,6 +98,7 @@ button {
     position: absolute;
     bottom: 12px;
     right: 12px;
+    cursor: pointer;
 }
 
 .book-read-true {

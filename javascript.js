@@ -16,6 +16,9 @@ function Library() {
 const myLibrary = new Library();
 
 Library.prototype.addBook = function(book) {
+    // for (const book of this.books) {
+    //     if (book.title === removeTitle) {
+
     this.books.push(book);
     console.log("Booked added.");
 }
@@ -26,6 +29,8 @@ Library.prototype.displayBooks = function() {
         bookCard = createBookCard(book);
         bookList.appendChild(bookCard);
     }
+
+    addBookListeners()
 }
 
 Library.prototype.removeBook = function(removeTitle) {
@@ -36,6 +41,14 @@ Library.prototype.removeBook = function(removeTitle) {
         }
         else {
             removeBookPosition++;
+        }
+    }
+}
+
+Library.prototype.toggleReadStatus = function(removeTitle) {
+    for (const book of this.books) {
+        if (book.title === removeTitle) {
+            book.read = !book.read;
         }
     }
 }
@@ -133,6 +146,8 @@ function closeAddBookModalWindow(e) {
 }
 
 function confirmAddBook(e) {
+    
+
     var title = newBookTitle.value;
     var author = newBookAuthor.value;
     var pages = newBookPages.value;
@@ -141,6 +156,8 @@ function confirmAddBook(e) {
     newBook = new Book(title, author, pages, read);
     e.currentTarget.library.addBook(newBook);
     e.currentTarget.library.saveLocal();
+
+    // addBookModal.style.display = "none";
 }
 
 addBookButton.addEventListener('click', openAddBookModal);
@@ -149,9 +166,7 @@ window.addEventListener('click', closeAddBookModalWindow);
 addBookForm.addEventListener('submit', confirmAddBook);
 
 
-// Events to remove book
-const removeBookButtons = document.querySelectorAll(".book-remove");
-
+// Remove book
 function removeBook(e) {
     targetParent = e.currentTarget.parentElement;
     title = targetParent.querySelector(".book-title").textContent;
@@ -161,14 +176,33 @@ function removeBook(e) {
     e.currentTarget.library.displayBooks();
 }
 
-removeBookButtons.forEach((removeBookButton) => {
-    removeBookButton.addEventListener('click', removeBook);
-    removeBookButton.library = myLibrary;
-})
+
+// Toggle read status
+function toggleReadStatus(e) {
+    targetParent = e.currentTarget.parentElement;
+    title = targetParent.querySelector(".book-title").textContent;
+
+    e.currentTarget.library.toggleReadStatus(title);
+    e.currentTarget.library.saveLocal();
+    e.currentTarget.library.displayBooks();
+}
 
 
+function addBookListeners() {
+    const removeBookButtons = document.querySelectorAll(".book-remove");
 
+    removeBookButtons.forEach((removeBookButton) => {
+        removeBookButton.addEventListener('click', removeBook);
+        removeBookButton.library = myLibrary;
+    })
 
+    const readStatusButtons = document.querySelectorAll(".book-read-status");
+
+    readStatusButtons.forEach((readStatusButton) => {
+        readStatusButton.addEventListener('click', toggleReadStatus);
+        readStatusButton.library = myLibrary;
+    })
+}
 
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
